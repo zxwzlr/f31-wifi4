@@ -1,0 +1,47 @@
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\eCos Configuration Tool]
+
+[HKEY_CURRENT_USER\Software\eCos Configuration Tool\Platforms]
+
+[HKEY_CURRENT_USER\Software\eCos Configuration Tool\Platforms\am31_sim]
+"ServerSideGdb"=dword:00000001
+"Prompt"="(gdb) "
+"Inferior"="mn10300-elf-gdb -nw -q %e"
+"Commands"="set height 0;target sim --board=stdeval1 --memory-region 0x34004000,0x8;load;break cyg_test_exit;rbreak cyg_assert_fail;break cyg_test_init;run;set cyg_test_is_simulator=1;cont;bt 64"
+"Prefix"="mn10300-elf"
+
+[HKEY_CURRENT_USER\Software\eCos Configuration Tool\Platforms\h8300h_sim]
+"ServerSideGdb"=dword:00000000
+"Prompt"="(gdb) "
+"Inferior"="h8300-elf-gdb -nw -q %e"
+"Commands"="set height 0;target sim;load;break cyg_test_exit;rbreak cyg_assert_fail;break cyg_test_init;cont;set cyg_test_is_simulator=1;cont;bt 64"
+"Prefix"="h8300-elf"
+
+[HKEY_CURRENT_USER\Software\eCos Configuration Tool\Platforms\linux]
+"ServerSideGdb"=dword:00000000
+"Prompt"="(gdb) "
+"Inferior"="i686-pc-linux-gnu-gdb -nw -q %e"
+"Commands"="set height 0;break cyg_test_exit;rbreak cyg_assert_fail;break cyg_test_init;run;set cyg_test_is_simulator=1;cont;bt 64"
+"Prefix"="i686-pc-linux-gnu"
+
+[HKEY_CURRENT_USER\Software\eCos Configuration Tool\Platforms\psim]
+"ServerSideGdb"=dword:00000001
+"Prompt"="(gdb) "
+"Inferior"="powerpc-eabi-gdb -nw -q %e"
+"Commands"="set height 0;target sim -o '/#address-cells 1' -o '/openprom/init/register/pc 0x100' -o '/iobus@0xf0000000/reg 0xf0000000 0x01000000' -o '/iobus/pal@0xf0001000/reg 0xf0001000 32';load;break cyg_test_exit;rbreak cyg_assert_fail;break cyg_test_init;run;set cyg_test_is_simulator=1;cont;bt 64"
+"Prefix"="powerpc-eabi"
+
+[HKEY_CURRENT_USER\Software\eCos Configuration Tool\Platforms\sparclite_sim]
+"ServerSideGdb"=dword:00000001
+"Prompt"="(gdb) "
+"Inferior"="sparclite-elf-gdb -nw -q %e"
+"Commands"="set height 0;target sim -nfp -sparclite -dumbio;load;break cyg_test_exit;rbreak cyg_assert_fail;break cyg_test_init;run;set cyg_test_is_simulator=1;cont;bt 64"
+"Prefix"="sparclite-elf"
+
+[HKEY_CURRENT_USER\Software\eCos Configuration Tool\Platforms\tx39_sim]
+"ServerSideGdb"=dword:00000001
+"Prompt"="(gdb) "
+"Inferior"="mips-tx39-elf-gdb -nw -q %e"
+"Commands"="set height 0;target sim --board=jmr3904pal --memory-region 0xffff8000,0x900 --memory-region 0xffffe000,0x4 --memory-region 0xb2100000,0x4;load;break cyg_test_exit;rbreak cyg_assert_fail;break cyg_test_init;run;set cyg_test_is_simulator=1;cont;bt 64"
+"Prefix"="mips-tx39-elf"
